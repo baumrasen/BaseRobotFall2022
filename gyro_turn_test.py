@@ -8,8 +8,8 @@ import gc
 
 logList = []
 debugMode = True
-_leftDriveMotorPort = 'E'
-_rightDriveMotorPort = 'A'
+_leftDriveMotorPort = 'F'
+_rightDriveMotorPort = 'E'
 driveMotors = MotorPair(_leftDriveMotorPort,
                                 _rightDriveMotorPort)
 

@@ -1,7 +1,11 @@
 # LEGO type:standard slot:0 autostart
 
 import base_robot
+
+import math
 import sys
+import utime
+
 from spike.control import wait_for_seconds, wait_until, Timer
 from spike.operator import greater_than, greater_than_or_equal_to, \
     less_than, less_than_or_equal_to, equal_to, not_equal_to
@@ -18,12 +22,20 @@ def mission2():
     br.hub.light_matrix.show_image("CHESSBOARD")
 
 def mission3():
-    br.driveMotors.move(.5, "seconds", 0, -10)
+    # br.driveMotors.move(.5, "seconds", 0, -10)
     br.hub.motion_sensor.reset_yaw_angle()
 
-    br.AccelGyroDriveFwd(55)
-    br.TurnRightAndDriveOnHeading(85, 50)
+    br.AccelGyroDriveForward(50)
+    for x in range(3):
+        br.TurnRightAndDriveOnHeading(83, 50)
 
+def mission4():
+    # br.driveMotors.move(.5, "seconds", 0, -10)
+    br.hub.motion_sensor.reset_yaw_angle()
+
+    # br.AccelGyroDriveForward(50)
+    for x in range(16):
+        br.TurnRightAndDriveOnHeading(83, 75)
 
 
 # Run the missions in order here
@@ -39,6 +51,11 @@ br.hub.right_button.wait_until_pressed()
 br.hub.right_button.wait_until_released()
 
 mission3()
+
+br.hub.right_button.wait_until_pressed()
+br.hub.right_button.wait_until_released()
+
+mission4()
 
 #raise SystemExit
 sys.exit(1)
